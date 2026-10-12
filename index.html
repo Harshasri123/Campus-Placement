@@ -1652,18 +1652,21 @@
       const NAV_CATEGORIES = [
         {
           id: 'dashboard',
+          buttonId: 'btn-nav-cat-dashboard',
           title: 'Dashboard',
           icon: '📊',
           badge: null,
           items: [
             {
               id: 'overview',
+              buttonId: 'btn-nav-overview',
               title: 'Overview',
-              desc: 'Platform roadmap, tracks & curriculum guide',
-              icon: '🌐',
-              isActive: currentView === 'landing',
+              desc: 'Candidate progress, diagnostics & activity command center',
+              icon: '📊',
+              isActive: currentView === 'home' && dashboardTab === 'dashboard',
               action: () => {
-                setCurrentView('landing');
+                setCurrentView('home');
+                setDashboardTab('dashboard');
                 setSelectedTopicSlug(null);
                 setActiveDropdown(null);
                 setMobileMenuOpen(false);
@@ -1671,6 +1674,7 @@
             },
             {
               id: 'daily_test',
+              buttonId: 'btn-nav-daily-test',
               title: 'Daily Test',
               desc: '10-minute placement challenge with instant scoring',
               icon: '⚡',
@@ -1685,6 +1689,7 @@
             },
             {
               id: 'rankings',
+              buttonId: 'btn-nav-leaderboard',
               title: 'Rankings',
               desc: 'Campus leaderboard & peer cohort percentiles',
               icon: '🏆',
@@ -1700,12 +1705,14 @@
         },
         {
           id: 'practice',
+          buttonId: 'btn-nav-cat-practice',
           title: 'Practice & Learn',
           icon: '🎯',
           badge: null,
           items: [
             {
               id: 'practice_tracks',
+              buttonId: 'btn-nav-practice-tracks',
               title: 'Practice Tracks',
               desc: '36 sub-topic folders & 100 top recurring PYQs each',
               icon: '🎯',
@@ -1720,6 +1727,7 @@
             },
             {
               id: 'formulas',
+              buttonId: 'btn-nav-formula-sheets',
               title: 'Formulas',
               desc: 'Slide-out formula cheat sheets & active flashcards',
               icon: '⚡',
@@ -1733,6 +1741,7 @@
             },
             {
               id: 'mock_papers',
+              buttonId: 'btn-nav-placement-papers',
               title: 'Mock Papers',
               desc: 'Authentic company placement test papers',
               icon: '📑',
@@ -1745,6 +1754,7 @@
             },
             {
               id: 'bookmarks',
+              buttonId: 'btn-nav-bookmarks',
               title: 'Bookmarks',
               desc: 'Saved tricky questions & revision notes vault',
               icon: '🔖',
@@ -1760,12 +1770,14 @@
         },
         {
           id: 'career',
+          buttonId: 'btn-nav-cat-career',
           title: 'Career & Jobs',
           icon: '💼',
           badge: 'Live',
           items: [
             {
               id: 'drives',
+              buttonId: 'btn-nav-campus-drives',
               title: 'Drives',
               desc: 'Explore active verified campus placement drives',
               icon: '🏢',
@@ -1781,6 +1793,7 @@
             },
             {
               id: 'applications',
+              buttonId: 'btn-nav-my-applications',
               title: 'Applications',
               desc: 'Track multi-round visual progression & status',
               icon: '📋',
@@ -1794,6 +1807,7 @@
             },
             {
               id: 'recruiter',
+              buttonId: 'btn-nav-recruiter-console',
               title: 'Recruiter',
               desc: 'Recruiter portal & candidate management console',
               icon: '👔',
@@ -1809,12 +1823,14 @@
         },
         {
           id: 'interview',
+          buttonId: 'btn-nav-cat-interview',
           title: 'Interview Prep',
           icon: '🎙️',
           badge: null,
           items: [
             {
               id: 'resume_ats',
+              buttonId: 'btn-nav-resume-matcher',
               title: 'Resume ATS',
               desc: 'In-browser PDF parser & ATS keyword gap matcher',
               icon: '📄',
@@ -1828,6 +1844,7 @@
             },
             {
               id: 'ai_interview',
+              buttonId: 'btn-nav-mock-interview',
               title: 'AI Interview',
               desc: 'Voice speech simulator with STAR rubric scoring',
               icon: '🎙️',
@@ -1843,6 +1860,7 @@
             },
             {
               id: 'interviews',
+              buttonId: 'btn-nav-interview-center',
               title: 'Interviews',
               desc: 'Student interview schedule, RSVPs & slot negotiation',
               icon: '🎯',
@@ -1856,6 +1874,7 @@
             },
             {
               id: 'company_arena',
+              buttonId: 'btn-nav-company-arena',
               title: 'Company Mock Arena',
               desc: 'TCS NQT, Infosys, Cognizant, Wipro, Accenture',
               icon: '🏢',
@@ -1871,6 +1890,7 @@
             },
             {
               id: 'timed_arena',
+              buttonId: 'btn-nav-timed-arena',
               title: 'Timed Test Arena',
               desc: 'Anti-cheat proctored custom timed assessment arena',
               icon: '🛡️',
@@ -1885,12 +1905,14 @@
         },
         {
           id: 'exam_hub',
+          buttonId: 'btn-nav-competitive-exams',
           title: 'Exam Hub',
           icon: '🏛️',
           badge: null,
           items: [
             {
               id: 'gate',
+              buttonId: 'btn-nav-exam-gate',
               title: 'GATE',
               desc: 'Computer Science & IT mock arena (MCQ, MSQ, NAT)',
               icon: '⚙️',
@@ -1903,6 +1925,7 @@
             },
             {
               id: 'cat',
+              buttonId: 'btn-nav-exam-cat',
               title: 'CAT',
               desc: 'Management entrance quantitative & DILR simulation',
               icon: '📈',
@@ -1915,6 +1938,7 @@
             },
             {
               id: 'upsc',
+              buttonId: 'btn-nav-exam-upsc',
               title: 'UPSC',
               desc: 'Civil Services preliminary & mains stage preparation',
               icon: '⚖️',
@@ -1927,6 +1951,7 @@
             },
             {
               id: 'banking',
+              buttonId: 'btn-nav-exam-banking',
               title: 'Banking Exams (SBI/IBPS)',
               desc: 'Bank PO & Clerk quantitative practice & tests',
               icon: '🏦',
@@ -1939,6 +1964,7 @@
             },
             {
               id: 'planner',
+              buttonId: 'btn-nav-study-planner',
               title: 'Study Planner',
               desc: 'Adaptive weekly study schedule & revision engine',
               icon: '📅',
@@ -1951,6 +1977,7 @@
             },
             {
               id: 'tracker',
+              buttonId: 'btn-nav-progress-tracker',
               title: 'Progress Tracker',
               desc: 'Multi-exam syllabus completion & time analytics',
               icon: '📊',
@@ -1965,12 +1992,14 @@
         },
         {
           id: 'more',
+          buttonId: 'btn-nav-cat-more',
           title: 'More',
           icon: '⋯',
           badge: null,
           items: [
             {
               id: 'compiler',
+              buttonId: 'btn-nav-coding-sandbox',
               title: 'In-Browser Compiler',
               desc: 'Live Python, Java, C, C++ code sandbox with tests',
               icon: '💻',
@@ -1984,6 +2013,7 @@
             },
             {
               id: 'ai_prep_suite',
+              buttonId: 'btn-nav-ai-prep-suite',
               title: 'AI Prep Suite',
               desc: 'Round-specific targeted interview drills & rubric builder',
               icon: '🧠',
@@ -1997,6 +2027,7 @@
             },
             {
               id: 'profile_history',
+              buttonId: 'btn-nav-user-profile',
               title: 'Profile & History',
               desc: 'Assessment attempt history & candidate profile',
               icon: '👤',
@@ -2009,6 +2040,7 @@
             },
             {
               id: 'settings',
+              buttonId: 'btn-nav-user-settings',
               title: 'Settings',
               desc: 'Audio synthesis preferences, camera test & security',
               icon: '⚙️',
@@ -2048,6 +2080,8 @@
                 return (
                   <div key={category.id} className="relative">
                     <button
+                      id={category.buttonId || `btn-nav-cat-${category.id}`}
+                      data-testid={`nav-cat-${category.id}`}
                       onClick={() => {
                         setActiveDropdown(isDropdownOpen ? null : category.id);
                       }}
@@ -2085,6 +2119,8 @@
                           {category.items.map((item) => (
                             <div
                               key={item.id}
+                              id={item.buttonId || `btn-nav-${item.id}`}
+                              data-testid={`nav-item-${item.id}`}
                               onClick={item.action}
                               className={`px-3 py-2 mx-1.5 rounded-xl cursor-pointer transition flex items-start gap-2.5 group ${
                                 item.isActive
@@ -2141,6 +2177,7 @@
               {/* User Profile Menu Dropdown (Desktop & Tablet) */}
               <div className="relative">
                 <button
+                  id="btn-nav-user-menu"
                   onClick={() => setActiveDropdown(activeDropdown === 'user' ? null : 'user')}
                   className="flex items-center gap-2 pl-2 sm:pl-3 border-l border-slate-200 text-left cursor-pointer group focus:outline-none"
                   title="My Account"
@@ -2176,6 +2213,7 @@
 
                     <div className="py-1.5">
                       <button
+                        id="btn-user-menu-profile"
                         onClick={() => {
                           onOpenUserProfile();
                           setActiveDropdown(null);
@@ -2186,6 +2224,7 @@
                         <span>View Profile & History</span>
                       </button>
                       <button
+                        id="btn-user-menu-settings"
                         onClick={() => {
                           onOpenSettings();
                           setActiveDropdown(null);
@@ -2199,6 +2238,7 @@
 
                     <div className="pt-1.5">
                       <button
+                        id="btn-user-menu-signout"
                         onClick={() => {
                           setActiveDropdown(null);
                           onSignOut();
@@ -2215,6 +2255,7 @@
 
               {/* Mobile Hamburger Menu Toggle Button */}
               <button
+                id="btn-mobile-menu-toggle"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="lg:hidden p-2 rounded-xl text-slate-600 hover:text-indigo-600 hover:bg-slate-100 transition cursor-pointer"
                 aria-label="Toggle Navigation Menu"
@@ -2259,6 +2300,8 @@
                         {category.items.map((item) => (
                           <div
                             key={item.id}
+                            id={`mobile-${item.buttonId || `btn-nav-${item.id}`}`}
+                            data-testid={`mobile-nav-item-${item.id}`}
                             onClick={item.action}
                             className={`p-2 rounded-xl flex items-center justify-between cursor-pointer text-xs transition ${
                               item.isActive ? 'bg-indigo-50 font-bold text-indigo-700' : 'text-slate-700 hover:bg-slate-50'
@@ -2483,6 +2526,8 @@
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {/* Card 1: Resume ATS */}
                   <div
+                    id="card-quick-resume-ats"
+                    data-testid="card-quick-resume-ats"
                     onClick={onOpenResumeMatcher}
                     className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between group"
                   >
@@ -2505,6 +2550,8 @@
 
                   {/* Card 2: AI Voice Interview */}
                   <div
+                    id="card-quick-mock-interview"
+                    data-testid="card-quick-mock-interview"
                     onClick={onOpenMockInterview}
                     className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-purple-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between group"
                   >
@@ -2527,6 +2574,8 @@
 
                   {/* Card 3: Practice Tracks */}
                   <div
+                    id="card-quick-practice-tracks"
+                    data-testid="card-quick-practice-tracks"
                     onClick={() => setDashboardTab('tracks')}
                     className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-emerald-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between group"
                   >
@@ -2549,6 +2598,8 @@
 
                   {/* Card 4: Exam Hub */}
                   <div
+                    id="btn-home-launch-exam-hub"
+                    data-testid="card-quick-exam-hub"
                     onClick={onOpenExamHub}
                     className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-indigo-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between group"
                   >
