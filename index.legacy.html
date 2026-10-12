@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Campus Placement & Career Prep Engine - Premium recruitment preparation portal featuring Quantitative Aptitude, Logical Reasoning, Verbal Ability, Technical Coding, and Company Mock Papers.">
+  <title>Campus Placement & Career Prep Engine | Recruitment 2026</title>
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- Global Header -->
+    <header class="site-header" role="banner">
+      <div class="brand-group" id="brand-home-link" tabindex="0" role="button" aria-label="Return to quiz home">
+        <div class="brand-icon" aria-hidden="true">🎯</div>
+        <div class="brand-text">
+          <h1>Campus Placement &amp; Career Prep</h1>
+          <p>Engineering &amp; Competitive Exam Portal</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Active subject pill (visible during quiz) -->
+        <div class="active-quiz-pill" id="header-subject-pill" aria-live="polite">
+          <span id="header-subject-icon">📐</span>
+          <span id="header-subject-title">Mathematics</span>
+        </div>
+
+        <!-- Teacher / Admin Portal Trigger -->
+        <button type="button" class="btn-admin-portal-trigger" id="btn-open-admin-portal" title="Open Teacher / Admin Question Management Portal" aria-label="Teacher / Admin Portal" style="display: none;">
+          <span class="admin-badge-icon">👨‍🏫</span>
+          <span id="admin-btn-label">Teacher Portal</span>
+        </button>
+
+        <!-- Student Profile / Auth Widget -->
+        <div class="user-auth-widget" id="user-auth-widget">
+          <!-- Shown when NOT logged in -->
+          <button type="button" class="btn-auth-trigger" id="btn-open-auth-modal" aria-label="Student Sign In or Register">
+            <span class="auth-icon" aria-hidden="true">👤</span>
+            <span id="auth-btn-label">Student Sign In</span>
+          </button>
+
+          <!-- Shown when logged in -->
+          <div class="user-profile-pill" id="user-profile-pill" style="display: none;">
+            <div class="user-avatar" id="header-user-avatar">RS</div>
+            <div class="user-info-text">
+              <span class="user-name" id="header-user-name">Rohan Sharma</span>
+              <span class="user-grade" id="header-user-grade">Grade 12</span>
+            </div>
+            <button type="button" class="icon-btn-subtle" id="btn-open-profile-modal" title="View Assessment History & Performance Profile" aria-label="View Student Profile & History">
+              📊
+            </button>
+            <button type="button" class="icon-btn-subtle" id="btn-logout" title="Sign Out" aria-label="Sign Out">
+              🚪
+            </button>
+          </div>
+        </div>
+
+        <!-- Campus Placement Portal Link -->
+        <a href="/react.html" class="btn-placement-nav" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #fff; padding: 0.45rem 0.9rem; border-radius: 9999px; font-weight: 700; font-size: 0.8rem; text-decoration: none; box-shadow: 0 2px 8px rgba(79, 70, 229, 0.35);">
+          <span>⚡ Placement Portal</span>
+          <span style="background: rgba(255,255,255,0.25); padding: 1px 6px; border-radius: 6px; font-size: 0.65rem; font-weight: 800;">2026</span>
+        </a>
+
+        <!-- Sound Toggle -->
+        <button type="button" class="icon-btn" id="btn-toggle-sound" aria-label="Toggle Sound Effects" title="Toggle Sound">
+          <span id="sound-icon">🔊</span>
+          <span id="sound-label">Audio On</span>
+        </button>
+
+        <!-- Theme Toggle (Dark / Light) -->
+        <button type="button" class="icon-btn" id="btn-toggle-theme" aria-label="Toggle Dark / Light Theme" title="Toggle Theme">
+          <span id="theme-icon">🌙</span>
+          <span id="theme-label">Dark</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN VIEW CONTAINER -->
+    <main id="main-content">
+      <!-- ==================================================================
+           VIEW 1: WELCOME, CONFIGURATION & SUBJECT SELECTION
+           ================================================================== -->
+      <section id="view-welcome" class="view-section active" aria-labelledby="welcome-heading">
+        <div class="hero-banner">
+          <span class="hero-tag">🎯 Campus Recruitment 2026</span>
+          <h2 id="welcome-heading">Campus Placement &amp; <span>Career Prep Engine</span></h2>
+          <p>
+            Master Quantitative Aptitude, Logical Reasoning, Verbal Ability, Technical Coding, and Company Mock Papers (TCS NQT, Infosys, Cognizant, Wipro, Accenture).
+            Timed assessments, anti-cheating monitoring, and sub-topic diagnostic skill feedback.
+          </p>
+
+          <!-- Placement Portal Spotlight Banner -->
+          <div class="placement-callout-card" style="margin-top: 1.5rem; background: linear-gradient(135deg, #1e1b4b, #312e81); border: 1px solid rgba(129, 140, 248, 0.3); border-radius: 1.25rem; padding: 1.5rem; color: #fff; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);">
+            <div style="max-width: 620px;">
+              <span style="background: rgba(255,255,255,0.15); color: #fde047; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block;">
+                ⚡ Daily Challenge &amp; Company Mock Papers
+              </span>
+              <h3 style="font-size: 1.3rem; font-weight: 800; margin-top: 0.5rem; color: #fff; line-height: 1.25;">
+                Start Full React Assessment Experience
+              </h3>
+              <p style="color: #c7d2fe; font-size: 0.85rem; margin-top: 0.35rem; line-height: 1.5;">
+                Experience the complete placement portal with interactive question palette, dynamic student profiles, 3-strike anti-cheating, and weakness diagnostics.
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <a href="/react.html" class="btn" style="background: #fde047; color: #0f172a; font-weight: 800; padding: 0.75rem 1.25rem; border-radius: 0.75rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 12px rgba(253, 224, 71, 0.3);">
+                <span>🚀 Launch Placement Engine</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Campus Placement Tracks Selection Cards -->
+        <div class="subject-grid" role="radiogroup" aria-label="Select a practice track">
+          <!-- Quantitative Aptitude Card -->
+          <div class="subject-card selected" data-subject="aptitude" role="radio" aria-checked="true" tabindex="0">
+            <div class="subject-header">
+              <div class="subject-icon-box">📊</div>
+              <div class="select-indicator" aria-hidden="true">✓</div>
+            </div>
+            <h3>Quantitative Aptitude</h3>
+            <span class="subject-badge">Aptitude Track • 10 Qs</span>
+            <p>Arithmetic (Time &amp; Work, Percentages, Profit &amp; Loss, Speed &amp; Distance) &amp; Data Interpretation (Pie Charts, Bar Graphs).</p>
+            <div class="subject-footer">
+              <span>Recruitment Standard</span>
+              <span>1 Mark / Question</span>
+            </div>
+          </div>
+
+          <!-- Verbal English Card -->
+          <div class="subject-card" data-subject="verbal" role="radio" aria-checked="false" tabindex="0">
+            <div class="subject-header">
+              <div class="subject-icon-box">📖</div>
+              <div class="select-indicator" aria-hidden="true">✓</div>
+            </div>
+            <h3>Verbal (English)</h3>
+            <span class="subject-badge">Verbal Track • 10 Qs</span>
+            <p>Verbal Ability (Vocabulary, Synonyms &amp; Antonyms, Idioms) &amp; Verbal Test (Sentence Correction, Spotting Errors).</p>
+            <div class="subject-footer">
+              <span>Recruitment Standard</span>
+              <span>1 Mark / Question</span>
+            </div>
+          </div>
+
+          <!-- Reasoning Card -->
+          <div class="subject-card" data-subject="reasoning" role="radio" aria-checked="false" tabindex="0">
+            <div class="subject-header">
+              <div class="subject-icon-box">🧩</div>
+              <div class="select-indicator" aria-hidden="true">✓</div>
+            </div>
+            <h3>Reasoning</h3>
+            <span class="subject-badge">Logic Track • 10 Qs</span>
+            <p>Logical Reasoning (Number Series, Blood Relations, Syllogisms, Coding-Decoding) &amp; Verbal Reasoning (Cause &amp; Effect).</p>
+            <div class="subject-footer">
+              <span>Recruitment Standard</span>
+              <span>1 Mark / Question</span>
+            </div>
+          </div>
+
+          <!-- Programming & Tech Card -->
+          <div class="subject-card" data-subject="programming" role="radio" aria-checked="false" tabindex="0">
+            <div class="subject-header">
+              <div class="subject-icon-box">💻</div>
+              <div class="select-indicator" aria-hidden="true">✓</div>
+            </div>
+            <h3>Programming &amp; Tech</h3>
+            <span class="subject-badge">Coding Track • 10 Qs</span>
+            <p>Core Programming concepts in Python, Java, C++, C, C# (.NET), Data Types, Memory, and OOPs.</p>
+            <div class="subject-footer">
+              <span>Technical Standard</span>
+              <span>1 Mark / Question</span>
+            </div>
+          </div>
+
+          <!-- Interview Preparation Card -->
+          <div class="subject-card" data-subject="interview" role="radio" aria-checked="false" tabindex="0">
+            <div class="subject-header">
+              <div class="subject-icon-box">👔</div>
+              <div class="select-indicator" aria-hidden="true">✓</div>
+            </div>
+            <h3>Interview Preparation</h3>
+            <span class="subject-badge">Interview Track • 10 Qs</span>
+            <p>HR Behavioral Questions (STAR Method), Technical Core CS (DBMS ACID, B+ Trees, OS Deadlocks, OOPs, Networks).</p>
+            <div class="subject-footer">
+              <span>Interview Ready</span>
+              <span>1 Mark / Question</span>
+            </div>
+          </div>
+
+          <!-- Company Placement Papers Card -->
+          <div class="subject-card" data-subject="placementpaper" role="radio" aria-checked="false" tabindex="0">
+            <div class="subject-header">
+              <div class="subject-icon-box">📑</div>
+              <div class="select-indicator" aria-hidden="true">✓</div>
+            </div>
+            <h3>Company Mock Papers</h3>
+            <span class="subject-badge">Mock Test • 45–60 Mins</span>
+            <p>Official Model Papers for TCS NQT, Infosys Springboard, Cognizant GenC, Wipro Elite NTH, and Accenture Assessment.</p>
+            <div class="subject-footer">
+              <span>Company Cut-offs</span>
+              <span>Timed Assessment</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Assessment Configuration & Instructions Card -->
+        <div class="start-section-card">
+          <!-- Duration Selector -->
+          <div class="duration-section">
+            <div class="duration-header">
+              <span class="duration-icon" aria-hidden="true">⏱️</span>
+              <div>
+                <h4>Assessment Duration & Countdown Limit</h4>
+                <p>Choose your timed session limit. The quiz will auto-submit when the countdown reaches 00:00.</p>
+              </div>
+            </div>
+
+            <div class="duration-pills-grid" role="radiogroup" aria-label="Select quiz countdown duration">
+              <button type="button" class="duration-pill" data-duration="5" role="radio" aria-checked="false">
+                <span class="pill-title">⚡ 5 Minutes</span>
+                <span class="pill-desc">Speed Drill (30s / Q)</span>
+              </button>
+              <button type="button" class="duration-pill active" data-duration="10" role="radio" aria-checked="true">
+                <span class="pill-title">⭐ 10 Minutes</span>
+                <span class="pill-desc">Standard (Recommended)</span>
+              </button>
+              <button type="button" class="duration-pill" data-duration="15" role="radio" aria-checked="false">
+                <span class="pill-title">📘 15 Minutes</span>
+                <span class="pill-desc">Comprehensive (90s / Q)</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="instructions-content">
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary);">
+              📝 Quiz Guidelines & System Rules
+            </h3>
+            <ul class="instructions-list">
+              <li>
+                <span class="instruction-icon">✓</span>
+                <span><strong>Format:</strong> 10 multiple-choice questions with 4 distinct options each.</span>
+              </li>
+              <li>
+                <span class="instruction-icon">⏱️</span>
+                <span><strong>Auto-Submission:</strong> Timed countdown clock with amber (&lt; 2 min) and red alerts. Auto-submits on 00:00.</span>
+              </li>
+              <li>
+                <span class="instruction-icon">★</span>
+                <span><strong>Review Navigation:</strong> Flag questions for review with the Question Palette navigator.</span>
+              </li>
+              <li>
+                <span class="instruction-icon">🎯</span>
+                <span><strong>Personalized Analytics:</strong> Evaluates topic weaknesses (&lt; 50%) and generates tailored study guidance.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="start-action-box">
+            <div class="selected-subject-summary" id="selected-summary-text">
+              Selected: <strong>Mathematics</strong> • 10 Questions • <strong>10 Minutes</strong>
+            </div>
+            <button type="button" class="btn-primary" id="btn-start-quiz" aria-label="Start the selected quiz">
+              <span>Start Timed Quiz</span>
+              <span aria-hidden="true">➔</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           VIEW 2: INTERACTIVE MCQ ENGINE & COUNTDOWN TIMER
+           ================================================================== -->
+      <section id="view-quiz" class="view-section" aria-label="Quiz Question Interface">
+        <!-- Top Status Bar -->
+        <div class="quiz-top-bar">
+          <div class="quiz-meta-info">
+            <div class="subject-tag-active" id="active-subject-badge">
+              <span id="active-badge-icon">📐</span>
+              <span id="active-badge-text">Mathematics</span>
+            </div>
+            <div class="question-counter-badge" id="question-counter" aria-live="polite">
+              Question <span id="current-q-num">1</span> <span>of <span id="total-q-num">10</span></span>
+            </div>
+          </div>
+
+          <div class="quiz-top-actions">
+            <button type="button" class="btn-fullscreen-trigger" id="btn-enter-fullscreen" title="Enter or Re-lock Fullscreen Examination Mode" aria-label="Toggle Fullscreen">
+              <span class="fs-icon">⛶</span>
+              <span>Fullscreen</span>
+            </button>
+
+            <!-- Countdown Timer with Color Warning Classes -->
+            <div class="quiz-timer-box" id="quiz-timer-container" aria-label="Countdown Timer">
+              <span id="timer-status-icon" aria-hidden="true">⏱️</span>
+              <div class="timer-display-group">
+                <span class="timer-label">Time Remaining</span>
+                <span id="quiz-timer-text" class="timer-digits">10:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Progress Bar -->
+        <div class="progress-container" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" id="progress-container" aria-label="Quiz progress">
+          <div class="progress-bar-fill" id="progress-bar-fill" style="width: 10%;"></div>
+        </div>
+
+        <!-- Active Question Card -->
+        <div class="question-card-wrapper" id="question-card" role="region" aria-live="polite">
+          <div class="question-meta-row">
+            <span class="concept-pill" id="question-concept-pill">
+              <span aria-hidden="true">📌</span>
+              <span id="question-concept-text">Calculus: Differentiation</span>
+            </span>
+
+            <span class="flag-status-pill" id="flag-status-pill">
+              <span aria-hidden="true">★</span>
+              <span>Marked for Review</span>
+            </span>
+          </div>
+
+          <h3 class="question-text" id="question-statement-text">
+            Loading question...
+          </h3>
+
+          <!-- Options Container -->
+          <div class="options-grid" id="options-container" role="radiogroup" aria-label="Question options">
+            <!-- Options dynamically rendered by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Navigation & Action Controls -->
+        <div class="quiz-controls-bar">
+          <div class="nav-btn-group">
+            <button type="button" class="btn-secondary" id="btn-prev-question" disabled aria-label="Go to previous question">
+              <span aria-hidden="true">←</span>
+              <span>Previous</span>
+            </button>
+
+            <button type="button" class="btn-flag" id="btn-toggle-flag" aria-label="Mark this question for review">
+              <span aria-hidden="true">★</span>
+              <span id="btn-flag-label">Mark for Review</span>
+            </button>
+          </div>
+
+          <div class="nav-btn-group">
+            <button type="button" class="btn-primary" id="btn-next-question" aria-label="Go to next question">
+              <span>Next Question</span>
+              <span aria-hidden="true">→</span>
+            </button>
+
+            <button type="button" class="btn-primary btn-submit-action" id="btn-open-submit-modal" style="display: none;" aria-label="Submit quiz answers">
+              <span>Submit Assessment</span>
+              <span aria-hidden="true">✓</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Feature 2: Interactive Question Palette & Navigation Matrix -->
+        <div class="palette-card">
+          <div class="palette-header">
+            <div class="palette-title">
+              <span aria-hidden="true">🧭</span>
+              <span>Question Palette</span>
+            </div>
+            <div class="palette-legend">
+              <div class="legend-item">
+                <span class="legend-dot answered"></span>
+                <span>Answered</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot flagged"></span>
+                <span>Flagged</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot unvisited"></span>
+                <span>Not Answered</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot current"></span>
+                <span>Current</span>
+              </div>
+            </div>
+          </div>
+          <div class="palette-grid" id="palette-grid" role="navigation" aria-label="Question jump buttons">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           VIEW 3: RESULTS, TARGETED FEEDBACK & REVIEW
+           ================================================================== -->
+      <section id="view-results" class="view-section" aria-label="Quiz Results and Performance Breakdown">
+        <!-- Hero Score Card with Radial SVG Gauge -->
+        <div class="results-hero-card">
+          <div class="radial-score-box">
+            <div class="gauge-svg-wrapper">
+              <svg class="gauge-svg" viewBox="0 0 200 200" aria-hidden="true">
+                <circle class="gauge-bg-circle" cx="100" cy="100" r="90" />
+                <circle class="gauge-progress-circle" id="gauge-progress-circle" cx="100" cy="100" r="90" />
+              </svg>
+              <div class="gauge-center-content">
+                <div class="gauge-score-value" id="results-score-text">0 / 10</div>
+                <div class="gauge-percentage-label" id="results-percent-text">0%</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="results-summary-content">
+            <div class="performance-badge" id="results-badge">
+              <span id="badge-icon">🏆</span>
+              <span id="badge-text">Outstanding</span>
+            </div>
+            <h2 id="results-subject-title">Mathematics Quiz Completed!</h2>
+            <p class="results-feedback-message" id="results-feedback-msg">
+              Evaluating your responses...
+            </p>
+
+            <div class="analytics-grid">
+              <div class="metric-card">
+                <div class="metric-val" id="metric-accuracy">0%</div>
+                <div class="metric-label">Accuracy</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-val" id="metric-time">00:00</div>
+                <div class="metric-label">Time Taken</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-val" id="metric-correct-count" style="color: var(--success);">0</div>
+                <div class="metric-label">Correct</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-val" id="metric-incorrect-count" style="color: var(--danger);">0</div>
+                <div class="metric-label">Incorrect</div>
+              </div>
+              <div class="metric-card" id="metric-violations-card">
+                <div class="metric-val" id="metric-violations-count" style="color: var(--warning);">0</div>
+                <div class="metric-label">Tab Switches</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="results-actions-bar">
+          <div class="action-buttons-group">
+            <button type="button" class="btn-primary" id="btn-retake-quiz">
+              <span aria-hidden="true">🔄</span>
+              <span>Retake Quiz</span>
+            </button>
+            <button type="button" class="btn-secondary" id="btn-choose-subject">
+              <span aria-hidden="true">📚</span>
+              <span>Choose Another Subject</span>
+            </button>
+          </div>
+          <div class="action-buttons-group">
+            <button type="button" class="btn-secondary" id="btn-view-profile-from-results">
+              <span aria-hidden="true">📊</span>
+              <span>Past Assessment History</span>
+            </button>
+            <button type="button" class="btn-secondary" id="btn-print-results" title="Print or save as PDF">
+              <span aria-hidden="true">🖨️</span>
+              <span>Print Summary</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ================================================================
+             TARGETED FEEDBACK & SKILL DIAGNOSTICS
+             ================================================================ -->
+        <div class="feedback-diagnostics-card" id="feedback-diagnostics-card">
+          <div class="card-header-with-badge">
+            <div class="title-wrapper">
+              <span class="section-icon" aria-hidden="true">🎯</span>
+              <div>
+                <h3>Targeted Skill Feedback & Diagnostics</h3>
+                <p class="subtitle-text">Performance broken down by conceptual topic & actionable study recommendations</p>
+              </div>
+            </div>
+            <span class="diagnostic-badge" id="diagnostic-summary-badge">Analyzed 10 Concepts</span>
+          </div>
+
+          <div class="diagnostics-two-column">
+            <!-- Sub-topic Accuracy Mastery Bars -->
+            <div class="subtopics-breakdown-box">
+              <h4 class="sub-heading">📊 Sub-Topic Performance Analysis</h4>
+              <p class="sub-desc">Concept accuracy breakdown evaluated in this assessment:</p>
+              <div class="topic-bars-list" id="topic-bars-list">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+
+            <!-- Explicit Actionable Recommendations -->
+            <div class="recommendations-box">
+              <h4 class="sub-heading">💡 Actionable Study Recommendations</h4>
+              <p class="sub-desc">Targeted study advice addressing detected weak areas (&lt; 50% score):</p>
+              <div class="recommendations-list" id="recommendations-list">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detailed Review & Explanation Section -->
+        <div class="review-section">
+          <div class="review-section-header">
+            <h3>📖 Question Review & Detailed Explanations</h3>
+            
+            <!-- Filters -->
+            <div class="filter-tabs" role="tablist" aria-label="Filter review questions">
+              <button type="button" class="filter-tab-btn active" data-filter="all" role="tab" aria-selected="true">
+                All (<span id="filter-count-all">10</span>)
+              </button>
+              <button type="button" class="filter-tab-btn" data-filter="incorrect" role="tab" aria-selected="false">
+                Incorrect (<span id="filter-count-incorrect">0</span>)
+              </button>
+              <button type="button" class="filter-tab-btn" data-filter="correct" role="tab" aria-selected="false">
+                Correct (<span id="filter-count-correct">0</span>)
+              </button>
+              <button type="button" class="filter-tab-btn" data-filter="flagged" role="tab" aria-selected="false">
+                Flagged (<span id="filter-count-flagged">0</span>)
+              </button>
+            </div>
+          </div>
+
+          <!-- Review List Container -->
+          <div class="review-cards-list" id="review-cards-container">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ====================================================================
+       MODAL 1: CONFIRMATION MODAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="modal-confirm" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-icon-badge" aria-hidden="true">📋</div>
+      <h3 id="modal-title">Ready to Submit?</h3>
+      <p class="modal-desc">Review your quiz progress summary below before submitting for evaluation.</p>
+
+      <div class="modal-stats-grid">
+        <div class="modal-stat-box">
+          <div class="modal-stat-val answered-val" id="modal-stat-answered">0</div>
+          <div class="modal-stat-label">Answered</div>
+        </div>
+        <div class="modal-stat-box">
+          <div class="modal-stat-val unanswered-val" id="modal-stat-unanswered">0</div>
+          <div class="modal-stat-label">Unanswered</div>
+        </div>
+        <div class="modal-stat-box">
+          <div class="modal-stat-val flagged-val" id="modal-stat-flagged">0</div>
+          <div class="modal-stat-label">Flagged</div>
+        </div>
+      </div>
+
+      <!-- Unanswered Warning Alert -->
+      <div class="modal-warning-box" id="modal-warning-alert" style="display: none;">
+        <span aria-hidden="true">⚠️</span>
+        <span id="modal-warning-text">You have unanswered questions. Any unanswered questions will receive 0 marks.</span>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="btn-modal-cancel">
+          Return & Review
+        </button>
+        <button type="button" class="btn-primary btn-submit-action" id="btn-modal-confirm">
+          Confirm & Submit
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       MODAL 2: STUDENT AUTHENTICATION (SIGN IN & REGISTER)
+       ==================================================================== -->
+  <div class="modal-overlay" id="modal-auth" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+    <div class="modal-card auth-modal-card">
+      <div class="modal-close-btn-wrapper">
+        <button type="button" class="modal-close-btn" id="btn-close-auth-modal" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="auth-header">
+        <div class="modal-icon-badge" aria-hidden="true">🎓</div>
+        <h3 id="auth-modal-title">Student Portal</h3>
+        <p class="modal-desc">Sign in or register to record your assessment history and track topic progress.</p>
+      </div>
+
+      <!-- Quick Demo Student Login Helpers -->
+      <div class="demo-accounts-callout">
+        <span class="demo-label">⚡ 1-Click Quick Demo Login:</span>
+        <div class="demo-btn-group">
+          <button type="button" class="demo-btn" id="btn-demo-rohan">
+            <strong>Rohan Sharma</strong> (Grade 12)
+          </button>
+          <button type="button" class="demo-btn" id="btn-demo-priya">
+            <strong>Priya Patel</strong> (Grade 11)
+          </button>
+          <button type="button" class="demo-btn demo-btn-teacher" id="btn-demo-teacher" title="Log in as Teacher/Administrator">
+            <strong>👨‍🏫 Dr. Sarah (Teacher / Admin)</strong>
+          </button>
+        </div>
+      </div>
+
+      <!-- Auth Tabs -->
+      <div class="auth-tabs" id="auth-tabs-bar" role="tablist">
+        <button type="button" class="auth-tab-btn active" id="tab-btn-login" role="tab" aria-selected="true">
+          Sign In
+        </button>
+        <button type="button" class="auth-tab-btn" id="tab-btn-register" role="tab" aria-selected="false">
+          Register New Student
+        </button>
+      </div>
+
+      <!-- Form Error / Info Banner -->
+      <div class="auth-alert" id="auth-alert" style="display: none;"></div>
+
+      <!-- LOGIN FORM -->
+      <form class="auth-form" id="form-login">
+        <div class="form-group">
+          <label for="login-email">Email or Student ID / Roll Number</label>
+          <input type="text" id="login-email" required placeholder="e.g. rohan@student.edu or STU-2026-041" autocomplete="username">
+        </div>
+        <div class="form-group">
+          <div class="form-label-row">
+            <label for="login-password">Password</label>
+            <button type="button" class="btn-link-forgot" id="btn-goto-forgot" aria-label="Forgot password? Recover account">
+              Forgot Password?
+            </button>
+          </div>
+          <input type="password" id="login-password" required placeholder="••••••••" autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn-primary auth-submit-btn" id="btn-submit-login">
+          Sign In
+        </button>
+      </form>
+
+      <!-- REGISTER FORM -->
+      <form class="auth-form" id="form-register" style="display: none;">
+        <div class="form-group">
+          <label for="register-name">Full Name</label>
+          <input type="text" id="register-name" required placeholder="e.g. Rahul Verma" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="register-email">Email or Student ID / Roll Number</label>
+          <input type="text" id="register-email" required placeholder="e.g. rahul@student.edu or STU-2026-105" autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label for="register-grade">Grade / Academic Year</label>
+          <select id="register-grade" required>
+            <option value="Grade 12 / Inter 2nd Year" selected>Grade 12 / Intermediate 2nd Year</option>
+            <option value="Grade 11 / Inter 1st Year">Grade 11 / Intermediate 1st Year</option>
+            <option value="Competitive Exam Prep">Intermediate Competitive Exam Prep</option>
+          </select>
+        </div>
+
+        <div class="form-row-two-col">
+          <div class="form-group">
+            <label for="register-password">Password (Min 6 chars)</label>
+            <input type="password" id="register-password" required placeholder="••••••••" minlength="6" autocomplete="new-password">
+          </div>
+          <div class="form-group">
+            <label for="register-confirm-password">Confirm Password</label>
+            <input type="password" id="register-confirm-password" required placeholder="••••••••" minlength="6" autocomplete="new-password">
+          </div>
+        </div>
+        <span class="password-match-hint" id="register-match-hint"></span>
+
+        <!-- Security Questions Setup -->
+        <div class="security-questions-section">
+          <div class="section-divider-title">
+            <span>🛡️ Security Questions (For Password Recovery)</span>
+          </div>
+          <p class="section-help-text">
+            Choose two questions and enter your confidential answers. If you ever forget your password, you can reset it self-reliantly using these questions without email or SMS.
+          </p>
+
+          <div class="form-group">
+            <label for="register-security-q1">Security Question 1</label>
+            <select id="register-security-q1" required>
+              <option value="" disabled selected>-- Select Question 1 --</option>
+              <option value="What was the name of your first pet?">What was the name of your first pet?</option>
+              <option value="What city were you born in?">What city were you born in?</option>
+              <option value="What was the name of your first elementary school?">What was the name of your first elementary school?</option>
+              <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+              <option value="What was your childhood nickname?">What was your childhood nickname?</option>
+              <option value="What is your favorite book or novel?">What is your favorite book or novel?</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="register-security-a1">Answer 1 <span class="label-hint">(Case-insensitive)</span></label>
+            <input type="text" id="register-security-a1" required placeholder="Enter answer for Question 1" autocomplete="off">
+          </div>
+
+          <div class="form-group">
+            <label for="register-security-q2">Security Question 2</label>
+            <select id="register-security-q2" required>
+              <option value="" disabled selected>-- Select Question 2 --</option>
+              <option value="What was your dream job as a child?">What was your dream job as a child?</option>
+              <option value="What was the model of your first bicycle or phone?">What was the model of your first bicycle or phone?</option>
+              <option value="What is the name of your favorite high school teacher?">What is the name of your favorite high school teacher?</option>
+              <option value="What was your favorite subject in middle school?">What was your favorite subject in middle school?</option>
+              <option value="What was the street name where you grew up?">What was the street name where you grew up?</option>
+              <option value="What city did you visit on your first memorable trip?">What city did you visit on your first memorable trip?</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="register-security-a2">Answer 2 <span class="label-hint">(Case-insensitive)</span></label>
+            <input type="text" id="register-security-a2" required placeholder="Enter answer for Question 2" autocomplete="off">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary auth-submit-btn" id="btn-submit-register">
+          Create Student Account
+        </button>
+      </form>
+
+      <!-- ================================================================
+           DEDICATED RECOVERY WORKFLOW VIEW (Hidden by default)
+           ================================================================ -->
+      <div class="recovery-workflow-container" id="container-recovery" style="display: none;">
+        <!-- Stepper Indicator -->
+        <div class="recovery-stepper" aria-label="Password recovery progress">
+          <div class="stepper-step active" id="recovery-step-pill-1">
+            <span class="step-num">1</span>
+            <span class="step-label">Identify</span>
+          </div>
+          <div class="stepper-line" id="recovery-step-line-1"></div>
+          <div class="stepper-step" id="recovery-step-pill-2">
+            <span class="step-num">2</span>
+            <span class="step-label">Challenge</span>
+          </div>
+          <div class="stepper-line" id="recovery-step-line-2"></div>
+          <div class="stepper-step" id="recovery-step-pill-3">
+            <span class="step-num">3</span>
+            <span class="step-label">Reset</span>
+          </div>
+        </div>
+
+        <!-- Recovery Alert Banner -->
+        <div class="auth-alert" id="recovery-alert" style="display: none;"></div>
+
+        <!-- RECOVERY STEP 1: Identify Account -->
+        <form class="auth-form recovery-step-panel active" id="form-recovery-step1">
+          <p class="recovery-step-intro">
+            Enter your registered email or student ID to retrieve your security challenge questions.
+          </p>
+          <div class="form-group">
+            <label for="recovery-identifier">Email or Student ID / Roll Number</label>
+            <input type="text" id="recovery-identifier" required placeholder="e.g. rohan@student.edu or STU-2026-041" autocomplete="username">
+          </div>
+          <div class="recovery-actions-column">
+            <button type="submit" class="btn-primary auth-submit-btn" id="btn-recovery-find">
+              <span>Retrieve Security Challenge</span> →
+            </button>
+            <button type="button" class="btn-link-subtle-full" id="btn-recovery-cancel-1">
+              ← Return to Sign In
+            </button>
+          </div>
+        </form>
+
+        <!-- RECOVERY STEP 2: Security Questions Challenge -->
+        <form class="auth-form recovery-step-panel" id="form-recovery-step2" style="display: none;">
+          <div class="challenge-user-pill">
+            <span class="pill-icon">👤</span>
+            <span class="pill-text" id="challenge-account-email">user@student.edu</span>
+          </div>
+
+          <div class="challenge-question-card">
+            <div class="challenge-question-badge">Question 1</div>
+            <p class="challenge-question-text" id="challenge-q1-text">What was the name of your first pet?</p>
+            <div class="form-group">
+              <label for="recovery-answer-1">Your Answer</label>
+              <input type="text" id="recovery-answer-1" required placeholder="Type answer for Question 1" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="challenge-question-card">
+            <div class="challenge-question-badge">Question 2</div>
+            <p class="challenge-question-text" id="challenge-q2-text">What city were you born in?</p>
+            <div class="form-group">
+              <label for="recovery-answer-2">Your Answer</label>
+              <input type="text" id="recovery-answer-2" required placeholder="Type answer for Question 2" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="recovery-actions-column">
+            <button type="submit" class="btn-primary auth-submit-btn" id="btn-recovery-verify">
+              <span>Verify Security Answers</span> ✓
+            </button>
+            <button type="button" class="btn-link-subtle-full" id="btn-recovery-back-to-step1">
+              ← Change Account Identifier
+            </button>
+          </div>
+        </form>
+
+        <!-- RECOVERY STEP 3: Verification & Password Reset -->
+        <form class="auth-form recovery-step-panel" id="form-recovery-step3" style="display: none;">
+          <div class="recovery-success-badge">
+            <div class="verified-icon-large">✅</div>
+            <div class="verified-text-group">
+              <strong>Security Answers Confirmed!</strong>
+              <p>Enter a new password for your account.</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="recovery-new-password">New Password (Minimum 6 characters)</label>
+            <input type="password" id="recovery-new-password" required placeholder="••••••••" minlength="6" autocomplete="new-password">
+          </div>
+
+          <div class="form-group">
+            <label for="recovery-confirm-password">Confirm New Password</label>
+            <input type="password" id="recovery-confirm-password" required placeholder="••••••••" minlength="6" autocomplete="new-password">
+          </div>
+          <span class="password-match-hint" id="recovery-match-hint"></span>
+
+          <div class="recovery-actions-column">
+            <button type="submit" class="btn-primary auth-submit-btn" id="btn-recovery-submit-reset">
+              <span>Reset Password &amp; Sign In</span> 🔑
+            </button>
+            <button type="button" class="btn-link-subtle-full" id="btn-recovery-cancel-3">
+              ← Cancel and Return to Sign In
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       MODAL 3: STUDENT PROFILE & ASSESSMENT HISTORY DASHBOARD
+       ==================================================================== -->
+  <div class="modal-overlay" id="modal-profile" role="dialog" aria-modal="true" aria-labelledby="profile-modal-title">
+    <div class="modal-card profile-modal-card">
+      <div class="modal-close-btn-wrapper">
+        <button type="button" class="modal-close-btn" id="btn-close-profile-modal" aria-label="Close profile">✕</button>
+      </div>
+
+      <div class="profile-header-card">
+        <div class="profile-avatar-large" id="profile-avatar-large">RS</div>
+        <div class="profile-header-info">
+          <h3 id="profile-modal-title">Student Profile & History</h3>
+          <p class="profile-name-text" id="profile-full-name">Rohan Sharma</p>
+          <div class="profile-tags-row">
+            <span class="profile-tag" id="profile-email-tag">rohan@student.edu</span>
+            <span class="profile-tag grade-tag" id="profile-grade-tag">Grade 12</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Career Statistics Grid -->
+      <div class="profile-stats-grid">
+        <div class="stat-card">
+          <div class="stat-num" id="stat-total-attempts">0</div>
+          <div class="stat-lbl">Assessments Taken</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="stat-avg-score">0%</div>
+          <div class="stat-lbl">Average Score</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="stat-high-score">0</div>
+          <div class="stat-lbl">Highest Score</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="stat-total-time">0m</div>
+          <div class="stat-lbl">Total Time Spent</div>
+        </div>
+      </div>
+
+      <!-- Weak Areas Tracker Callout -->
+      <div class="profile-weak-areas-box">
+        <h4>⚠️ Recurring Weak Areas (&lt; 50% Mastery)</h4>
+        <div class="weak-tags-container" id="profile-weak-tags-list">
+          <span class="no-weak-msg">No weak areas detected! Excellent foundational strength.</span>
+        </div>
+      </div>
+
+      <!-- Historical Assessment Log -->
+      <div class="history-table-section">
+        <div class="history-section-header">
+          <h4>📜 Persistent Assessment History Log</h4>
+          <span class="history-count" id="history-total-count">Showing past submissions</span>
+        </div>
+
+        <div class="history-table-wrapper">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>Score</th>
+                <th>Accuracy</th>
+                <th>Time Spent</th>
+                <th>Weak Areas</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="history-table-body">
+              <tr>
+                <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 2rem;">
+                  Loading assessment history...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       MODAL 4: PAST ATTEMPT DETAILED REPORT REVIEW
+       ==================================================================== -->
+  <div class="modal-overlay" id="modal-attempt-detail" role="dialog" aria-modal="true" aria-labelledby="attempt-detail-title">
+    <div class="modal-card past-report-card">
+      <div class="modal-close-btn-wrapper">
+        <button type="button" class="modal-close-btn" id="btn-close-attempt-modal" aria-label="Close past report">✕</button>
+      </div>
+
+      <div class="past-report-header">
+        <h3 id="attempt-detail-title">Past Assessment Report</h3>
+        <p id="attempt-detail-meta" class="subtitle-text">Subject: Mathematics • Date: 2026-09-10</p>
+      </div>
+
+      <div class="past-report-score-box">
+        <div class="past-score-badge" id="past-attempt-score">8 / 10</div>
+        <div class="past-score-details">
+          <span id="past-attempt-percent" style="font-weight: 700; font-size: 1.1rem; color: var(--primary);">80% Accuracy</span>
+          <span id="past-attempt-time" style="color: var(--text-secondary); font-size: 0.9rem;">Time Taken: 7m 42s</span>
+        </div>
+      </div>
+
+      <!-- Actionable recommendations from this attempt -->
+      <div class="past-recs-section">
+        <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">
+          🎯 Recorded Skill Feedback & Recommendations
+        </h4>
+        <div id="past-recs-list" class="recommendations-list">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Question breakdown -->
+      <div class="past-answers-section">
+        <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary);">
+          📝 Question Breakdown
+        </h4>
+        <div id="past-answers-list" class="review-cards-list">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       MODAL 5: ANTI-CHEATING TAB SWITCH 3-STRIKE WARNING MODAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="modal-tab-warning" role="dialog" aria-modal="true" aria-labelledby="tab-warning-title">
+    <div class="modal-card warning-modal-card">
+      <div class="warning-icon-large" aria-hidden="true">⚠️</div>
+      <h3 id="tab-warning-title" class="warning-modal-title">Warning: Tab Switch Detected</h3>
+      <p class="warning-modal-text">
+        Switching tabs, windows, or opening other applications is forbidden.
+      </p>
+      <div class="strike-warning-box">
+        <div class="strike-pill" id="warning-strike-pill">
+          Strike <span id="warning-strike-num">1</span> of 3
+        </div>
+      </div>
+      <p class="warning-danger-notice" id="warning-danger-notice">
+        Reaching 3 strikes will automatically submit your quiz.
+      </p>
+      <button type="button" class="btn-primary btn-warning-action" id="btn-warning-understand">
+        I Understand, Return to Test
+      </button>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       MODAL 6: TEACHER / ADMIN QUESTION CREATION & MANAGEMENT PORTAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="modal-admin-portal" role="dialog" aria-modal="true" aria-labelledby="admin-portal-title">
+    <div class="modal-card admin-modal-card">
+      <div class="modal-close-btn-wrapper">
+        <button type="button" class="modal-close-btn" id="btn-close-admin-modal" aria-label="Close portal">✕</button>
+      </div>
+
+      <div class="admin-portal-header">
+        <div class="admin-header-badge">👨‍🏫 Faculty / Administrator Portal</div>
+        <h3 id="admin-portal-title">Teacher Portal: Add New Question</h3>
+        <p class="subtitle-text">Manage subject questions and sub-topics for diagnostic feedback directly in PostgreSQL / SQLite storage.</p>
+      </div>
+
+      <!-- Navigation Tabs inside Admin Modal -->
+      <div class="admin-tabs-bar" role="tablist">
+        <button type="button" class="admin-tab-btn active" id="tab-btn-add-q" role="tab" aria-selected="true">
+          ➕ Add New Question
+        </button>
+        <button type="button" class="admin-tab-btn" id="tab-btn-view-bank" role="tab" aria-selected="false">
+          📚 Browse Question Bank (<span id="admin-q-count">0</span>)
+        </button>
+      </div>
+
+      <!-- Live status message -->
+      <div class="admin-alert" id="admin-status-alert" style="display: none;"></div>
+
+      <!-- TAB 1: ADD QUESTION FORM -->
+      <form class="admin-form" id="form-admin-add-question">
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label for="admin-q-subject">Subject *</label>
+            <select id="admin-q-subject" required>
+              <option value="Mathematics">Mathematics</option>
+              <option value="Physics">Physics</option>
+              <option value="English">English</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="admin-q-topic">Topic Tag (Skill Area) *</label>
+            <input type="text" id="admin-q-topic" required placeholder="e.g. Calculus: Limits, Kinematics, Grammar: Modifiers">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="admin-q-text">Question Prompt *</label>
+          <textarea id="admin-q-text" rows="3" required placeholder="Enter the complete question prompt for intermediate students..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Multiple Choice Options (Exactly 4 Options Required) *</label>
+          <div class="options-inputs-grid">
+            <div class="option-input-group">
+              <span class="opt-label-badge">A</span>
+              <input type="text" id="admin-q-opt-a" required placeholder="Option A text">
+            </div>
+            <div class="option-input-group">
+              <span class="opt-label-badge">B</span>
+              <input type="text" id="admin-q-opt-b" required placeholder="Option B text">
+            </div>
+            <div class="option-input-group">
+              <span class="opt-label-badge">C</span>
+              <input type="text" id="admin-q-opt-c" required placeholder="Option C text">
+            </div>
+            <div class="option-input-group">
+              <span class="opt-label-badge">D</span>
+              <input type="text" id="admin-q-opt-d" required placeholder="Option D text">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label for="admin-q-correct">Correct Answer *</label>
+            <select id="admin-q-correct" required>
+              <option value="0">Option A</option>
+              <option value="1">Option B</option>
+              <option value="2">Option C</option>
+              <option value="3">Option D</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="admin-q-difficulty">Difficulty Level</label>
+            <select id="admin-q-difficulty">
+              <option value="intermediate" selected>Intermediate (Grade 11-12)</option>
+              <option value="advanced">Advanced / Challenge</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="admin-q-explanation">Explanation &amp; Solution Walkthrough *</label>
+          <textarea id="admin-q-explanation" rows="2" required placeholder="Explain why this option is correct to aid student feedback..."></textarea>
+        </div>
+
+        <div class="admin-actions-bar">
+          <button type="submit" class="btn-primary btn-admin-submit" id="btn-admin-save-q">
+            <span>Save Question to Database</span> 💾
+          </button>
+        </div>
+      </form>
+
+      <!-- TAB 2: BROWSE QUESTION BANK -->
+      <div class="admin-bank-view" id="admin-bank-view" style="display: none;">
+        <div class="bank-filters-row">
+          <div class="bank-filter-group">
+            <label for="bank-filter-subject">Filter Subject:</label>
+            <select id="bank-filter-subject">
+              <option value="all">All Subjects</option>
+              <option value="mathematics">Mathematics</option>
+              <option value="physics">Physics</option>
+              <option value="english">English</option>
+            </select>
+          </div>
+          <button type="button" class="btn-secondary btn-sm" id="btn-refresh-bank">🔄 Refresh Bank</button>
+        </div>
+        <div class="bank-questions-list" id="bank-questions-list">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Application Logic -->
+  <script src="js/api.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

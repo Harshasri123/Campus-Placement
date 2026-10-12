@@ -1,0 +1,29 @@
+{
+  "name": "careerpath",
+  "version": "1.0.0",
+  "description": "CareerPath - End-to-end career readiness platform for college students and fresh graduates, featuring comprehensive campus placement training, competitive exam preparation, live coding compiler, resume ATS matcher, and real-time AI mock interviews.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "careerpath",
+    "campus-placement",
+    "competitive-exams",
+    "interview-preparation",
+    "aptitude",
+    "dsa",
+    "gate",
+    "cat"
+  ],
+  "author": "CareerPath Technologies",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
